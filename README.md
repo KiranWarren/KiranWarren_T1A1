@@ -178,7 +178,9 @@ While IP is a connectionless protocol only concerned with each packet being rout
 
 ## - HTTP and HTTPS
 
-response
+HTTP, or hypertext transfer protocol, is an application layer protocol designed for the transmission of data between web browsers and servers. It is a client-server protocol, with the client sending requests to the server, and the server sending back responses.
+
+When a webpage is requested by a user, the web browser will translate this into HTTP requests and send these to the corresponding web server(s).
 
 ## - Web browsers (requests, rendering and developer tools)
 
