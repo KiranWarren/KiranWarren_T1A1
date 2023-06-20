@@ -120,9 +120,9 @@ The use of packets means that there does not need to be a dedicated line of tran
 
 ## - IP addresses (IPv4 and IPv6)
 
-The IP (internet protocol) address is a unique identifier given to a device that is connected to the internet or a local network. The device is also called a host, which could be a computer, printer, etc. Data packets sent across the network will be given a destination address in the form of an IP address, which tells network equipment the location of the destination device. IP addresses form the basis of the internet, and allow two devices across different networks to communicate with each other.
+The IP (internet protocol) address is a unique identifier given to a device that is connected to the internet or a local network. The device is also called a host, which could be a computer, printer, etc. Data packets sent across the network will be given a destination address in the form of an IP address in the packet header, which tells network equipment the location of the destination device. IP addresses form the basis of the internet, and allow two devices across different networks to communicate with each other.
 
-An IPv4 address is represented by four 8-bit (0 - 255) numbers, separated by periods (example: 127.0.0.1). The first three numbers of the IP address are the network ID and the last number is the host ID. The 32-bit IPv4 address offers a total of approximately 4.3 billion unique addresses (2<sup>32</sup>). This amount likely seemed sufficient when the IPv4 address was first launched in 1983, however, the ubiquity of the internet and the sheer number of devices that are now connected presents a real possibility of running out of addresses.
+An IPv4 address is represented by four 8-bit (0 - 255) numbers, separated by periods (example: 127.0.0.1). The first three numbers of the IP address are the network ID and the last number is the host ID. The 32-bit IPv4 address offers a total of approximately 4.3 billion unique addresses (2<sup>32</sup>). This amount likely seemed sufficient when the IPv4 address was first launched in 1983, however, the ubiquity of the internet and the sheer number of devices that are now connected presents a real possibility of running out of unique addresses.
 
 An IPv6 address is represented by eight hexadecimal (a - f, 0 - 9) 16-bit alphanumerics, separated by colons (example: 4000:0000:0000:0000:1be5:3020:a00e:2001). This address format provides an astronomical 340 undecillion unique addresses (2<sup>128</sup> or 3.4 x 10<sup>38</sup>). IPv6 also provides some additional technical differences to IPv4, including larger packet headers than IPv4 addresses (approximately double the size) and the elimination of NAT (network address translation).
 
@@ -133,7 +133,7 @@ An IPv6 address is represented by eight hexadecimal (a - f, 0 - 9) 16-bit alphan
 
 ## - Routers and routing
 
-Routers are a network device that are responsible for receiving packets from a device and forwarding it towards the destination device using the most efficient path. The router is the traffic controller for packets, directing them where to go to avoid congestion. Routers connect networks together, forwarding data packets between them. Communication of two devices on different networks across the internet is managed by a series of routers.
+Routers are a network device that are responsible for receiving packets from a device and forwarding it towards the destination device using the most efficient path. The router is the traffic controller for packets, directing them to where they need to go whilst avoiding congestion. Routers connect networks together, forwarding data packets between them. Communication of two devices on different networks across the internet is managed by a series of routers. Routers are the physical infrastructure that facilitate communication across the countless networks that make up the internet.
 
 Routing is performed by the router by reading the header information of a data packet to see where the destination device is. The router will consult its routing table to determine the most efficient pathway for the packet to take to reach its destination. Information within the routers routing table can be manually configured or learning by dynamic routing protocols. Congestion can occur over the network intermittently at different locations, so it is the routers job to balance the load across various connections to ensure efficient delivery of data.
 
@@ -144,7 +144,7 @@ Routing is performed by the router by reading the header information of a data p
 
 ## - Domains and DNS
 
-Computer networks use IP addresses to send data packets from one device to the other. While this is perfectly fine for computers to communication, it becomes hard for humans to interpret and remember specific addresses. Domain names provide a readable and meaningful address for websites that are much easier for people to use.
+Computer networks use IP addresses to send data packets from one device to the other. While this is perfectly fine for computers to communication, it becomes hard for humans to interpret and remember specific addresses. Domain names provide a readable and meaningful address for websites that are much easier for people to use. The domain name system was created in 1983 by Paul Mockapetris and his team to replace the manual and increasingly-complex process of manually assigning IP addresses and storing them for reference in a .txt file on an NIC server.
 
 A domain name can contain several strings, separated by periods. Each string can denote information about that domain. For example:
 
@@ -162,14 +162,17 @@ When a domain name is entered into a web browser, the web browser will need to t
 
 ## - TCP
 
-TCP stands for transmission control protocol, and is a transport protocol that works in conjunction with the internet protocol to ensure that data packets are received without error and in the correct order. The IP ensures that each packet of a given piece of data arrives at the required destination, and the TCP ensures that those packets are assembled into the right order and have not been corrupted. The TCP information (TCP header) is contained within the payload of the packet.
+TCP stands for transmission control protocol, and is a transport layer protocol that works in conjunction with the internet protocol to ensure that data packets are received without error and in the correct order. The IP ensures that each packet of a given piece of data arrives at the required destination, and the TCP ensures that those packets are assembled into the right order and have not been corrupted. The TCP information (TCP header) is contained within the payload of the packet.
 
-While IP is a connectionless protocol only concerned with each packet being routed to the destination, TCP maintains a connection between a client and a server for the transmission of the data. Reusing the email example, an email is sent from a client computer to a receiving server:
+While IP is a connectionless protocol only concerned with each packet being routed to the destination, TCP maintains a connection between a client and a server for the transmission of the data. TCP has contributed to client-server communication by improving the reliability of data transmission and making corrections when data packets have been lost or corrupted.
+
+Reusing the email example, an email is sent from a client computer to a receiving server:
 
 - The source device will send an initial request (SYN or synchronisation) packet to the server.
 - Upon receiving the request, the server will send back a packet to agree to the process (SYN/ACK or synchronisation/acknowledgement).
 - Upon receiving the SYN/ACK packet, the source device will then send back another packet to confirm the process (ACK or acknowledgement).
 - The email is then broken up into packets and sent over the network. Each packet requiring an ACK from the server to confirm that the packet was received and without error. A packet may be re-sent if no ACK was received or if the checksum within the TCP header received by the server notified that the packet payload was corrupted.
+- The rate at which packets and acknowledgements are sent is controlled by TCP flow control. The device sending the data packets will adjust the rate of transmission based on the receiving device's receive window.
 - The server will reassemble the packets back into the original email using the TCP implementation.
 
 ### References
@@ -180,8 +183,126 @@ While IP is a connectionless protocol only concerned with each packet being rout
 
 HTTP, or hypertext transfer protocol, is an application layer protocol designed for the transmission of data between web browsers and servers. It is a client-server protocol, with the client sending requests to the server, and the server sending back responses.
 
-When a webpage is requested by a user, the web browser will translate this into HTTP requests and send these to the corresponding web server(s).
+An example of an application that uses this protocol is a web browser. The web browser knows what protocol to use based on the first piece of the URL:
+
+> <b>https</b>://coderacademy.edu.au
+
+This piece of the URL will tell the browser to use the "https" protocol to retrieve the media from the web server(s). Upon entering a URL or clicking on a link, the web browser will send HTTP GET requests to the corresponding web servers for the content on the webpage. The server will then in turn send back the HTTP response, which will contain the media that was requested. The web browser can also send information to server using a HTML POST request, for example, when a HTML form is filled out and submitted.
+
+For HTTP requests and responses, all of this information is sent between the client and server as plain text. Any third party monitoring the connection can easily read the information that is being communicated. This transparency raises issues when dealing with any information that may be sensitive, such as user login details, HTML form submissions, banking information, etc.
+
+The HTTPS protocol was developed to create a secure connection between the client and server. The added "S" in HTTPS stands for secure. All information sent between the web browser and the server is encrypted using SSL/TLS (secure sockets layer/transport layer security) encryption. Additionally, servers require SSL certificates to give client's verification that they are communicating with the server that owns the requested domain. Web browsers now give warnings when attempting to communicate with a server using HTTP instead of HTTPS:
+
+_Insert http warning image_
+
+### References
+
+- d
+- d
 
 ## - Web browsers (requests, rendering and developer tools)
 
-response
+On a basic level, web browsers are applications used to surf the world wide web. They handle all of the HTTP communication with servers, and renders the retrieved files into viewable content for the user.
+
+To reuse a similar example, when a URL is entered into a browser:
+
+- The browser will read the first piece of the URL (e.g. https://) to know what protocol to use to communicate with the server.
+- The browser will resolve the human-readable URL into an IPv4 or IPv6 address, by requesting the corresponding IP address from DNS servers.
+- The browser will establish a TCP connection with the server at the requested address.
+- The browser will then make one or more HTTP GET requests to the server to retrieve the file(s) at the requested URL.
+- The server will respond by sending back the requested files.
+- The browser will render the files (HTML, CSS, etc.) into viewable content for the user in the application window.
+
+There are other HTTP requests that a browser may send to a server, such as a POST request. A POST request will be used when a user fills out a HTML form on a web page and presses the submit button. The data submitted by the user will be sent to the server, which may then create or update a resource. The server will then respond back to the client with whether the POST request was accepted or rejected.
+
+The browser renders the retrieved files into viewable content for the user through a process called the critical rendering path (CRP):
+
+1. Document Object Model (DOM) - The HTML elements are read by the browser, they will be converted to JavaScript objects. A DOM tree is constructed using the heirachy set forth by the HTML code structure.
+2. CSS Object Model (CSSOM) - The styling information will be read by the browser and converted into another tree, similar to the DOM.
+3. Render Tree - The DOM and CSSOM are combined to create a render tree, which contains all of the objects that will be visible and how they will be styled.
+4. Layout - Each object on the render tree has its layout created based on its individual size, where it is in relation to other objects, and the viewport it will be presented on.
+5. Paint - Objects are layered about the z-axis (i.e. CSS z-index property). Pixels are then painted within the browser window. Pixels may require re-painting when certain actions occur, such as scrolling.
+
+Modern web browsers include a set of developer tools, that can be used for useful tasks such as checking the performance of a webpag, inspecting the contents of the HTML, seeing what CSS properties are applied to HTML elements, etc.
+
+Web browsers have been instrumental to the development of client and server communication by handling all of the technical requirements such as HTTP requests, rendering of HTML and CSS files and allowing the user to seamlessly interact with the web page. They also aid web developers by providing developer tools that help when constructing, debugging and analysing the performance of web pages.
+
+### References
+
+- d
+- d
+
+## Question 4 - Identify three data structures used in the Python programming language and explain the reasons for using each.
+
+There are four data structures used in Python: lists, tuples, sets and dictionaries. These data structures can be collections of individual data types of any kind, or collections of other data structures, or a combination of both.
+
+Data structures in Python do not need to be homogeneous, meaning that any data structure can contain a mix of different data types without issue. However, some functions may require compatible data types in order to run without error. An example of this may be using the sum() function on a list that contains strings and integers called 'list'. Trying to compute sum(list) will return an error as strings and integers cannot be added together in Python.
+
+Three of the four data structures are:
+
+- Lists - These are the most commonly used data structure in Python. They are mutable, meaning that items within the list can be changed, removed and added. Lists are also sequenced, meaning that the items within the list are of a particular order and will have a corresponding index. A list can be created using square brackets or the list function:
+
+```python
+list_a = [0, 5, "hello"]
+list_b = list("have a good day", 0.00057, 99)
+```
+
+Lists should be used when the data set contained in the list needs to be mutable and sequenced. If we have a data structure that will have its items added, changed or removed, and the order of these items is important, then a list would be an appropriate choice.
+
+- Tuples - Tuples are almost identical to lists, except that tuples are immutable. Once a tuple has been created, the items within it cannot be added, changed or removed. Below is the error received when trying to re-assign a tuple item.
+
+_tuple error image_
+
+The only technical exception to this would be if a mutable data structure, such as a list, was stored within a tuple. The items within the stored data structure may be altered, but the tuple itself cannot be changed. A tuple can be created using the round brackets, comma-separated items or the tuple function using a list as an argument:
+
+```python
+tuple_a = ([0, 1], "abc", 19, 19.00002)
+tuple_b = 1, 4, 9
+tuple_c = tuple(list_a)
+```
+
+When items within a data structure should not be changed after creation, then a tuple should be used. It will prevent accidental altering, adding or removed of items. The tuple is also a more memory-efficient than a list.
+
+- Dictionaries - Dictionaries are a mutable data structure that contain key:value pairs. In lists, we can refer to items based on their index. In dictionaries, we can refer to values based on their key. A dictionary can be created using curly braces with colon separated key and value pairs or using the dict() function:
+
+```python
+dict_a = {'key_1':'value_1','age':33,'height':193}
+dict_b = dict(first_name="kiran",birth_year=1989)
+```
+
+The keys, values or both can be returned using the following methods:
+
+```python
+dict_a.keys() # Returns the keys from dict_a
+dict_a.values() # Returns the values from dict_a
+dict_a.items() # Returns the ('key', value) pairs from dict_a
+```
+
+Dictionaries are very similar to lists, however, their items are referred to by the use of their associated key instead of their index. This means that while dictionary items are technically ordered (as of Python 3.7), their order does not matter when accessing values. The values within the dictionary are also given more meaning with the key as a description, which improves the code readability for programmers.
+
+### References
+
+- d
+- d
+
+## Question 5 - Describe the features of interpreters and compilers and how they are different.
+
+Code written in high level programming languages, such as Python or C#, are not readily understandable by computers. Computers require instructions given in binary, which is also called machine code. An intermediate step is required between an operation written in high level language and the computer performing that operation. This intermediate step is performed by compilers and interpreters.
+
+### Interpreter
+
+The interpreter will read, convert and execute the code line-by-line. If there is an error within the code, the code will run up to that point then break and display the error. Python is an example of a high level language that uses an interpreter.
+
+### Compiler
+
+The compiler reads and converts all of the code first. If an error is within the code, it will result in a compiler error and none of the code will execute. C# is an example of a high level language that uses a compiler.
+
+Some differences between the interpreter and compiler include:
+
+- Speed - The compiler will take longer before code execution begins, due to it having to convert the entire code to machine code first. However, execution of the code will be slower with an interpreter due to each line having to be read and converted to machine code as execution is occurring.
+- Errors - A compiler will not execute code that contains an error. The interpreter will run the code up until the point at which an error occurs.
+- Ease of development - A compiled code will run faster, however, when developing and debugging code, an interpreter is more developer-friendly.
+- Output of the Compiler/Interpreter - A compiler will create an executable file from the compiled code, which can be stored and run later without the need of the source code. The interpreter does not have a similar output, and requires the source code in order to be executed again.
+
+## Question 6 - Identify two commonly used programming languages and explain the benefits and drawbacks of each.
+
