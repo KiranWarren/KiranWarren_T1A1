@@ -306,3 +306,64 @@ Some differences between the interpreter and compiler include:
 
 ## Question 6 - Identify two commonly used programming languages and explain the benefits and drawbacks of each.
 
+The two programming languages will be Python and C:
+
+### Python
+
+Python is a high level language, created for general use programming. Python is an extremely popular programming language, given that it has diverse applications and has a very readable syntax. Some benefits of the Python programming language include:
+
+- Open source - Anyone is free to access the source code for Python and modify and share it.
+- Diverse applications - Python has a extensive number of libraries than can be imported and used.
+- Excellent readability - The syntax of Python is very easy to understand and learn. Indents are used to define code blocks.
+- Interpreted code - Python uses a code interpreter instead of a compiler. This makes it an easier language to develop and debug.
+- Dynamically-typed - Python uses dynamic-typing, which means that variable types are decided during execution of the code. This makes the language more flexible and simpler when developing the code.
+- Portability - Python can be run on any platform without the need for code to be changed to suit.
+
+Some drawbacks to using Python include:
+
+- Interpreted code - While this does have benefits with development, it also creates inefficiencies when executing code. Other languages would be preferred if execution speed is important.
+- Dynamically-typed - This also provides benefits with development, but comes with drawbacks. Execution will be slower due to the typing happening at execution. More errors can be created when running the code due to variables having unexpected data types or data types changing due to re-assignment.
+- Memory usage - Due to the all the features Python provides, this comes with the downside of taking up memory space.
+
+### C
+
+C is a general purpose language and considered to be a middle level language with both high level and low level uses. C forms the basis for many other programming languages and was developed in 1972 from a programming language called B. Some benefits of using the C programming language include:
+
+- Simplicity - Limited number of keywords or symbols to learn mean it is a simple language to learn.
+- Diverse application - C can be implemented as a high level language for applications or a low level language for hardware drivers.
+- Compiled code - C is a compiled code, and has an incredibly fast execution speed.
+- Portability - C is based on ascii characters, and can therefore work on any platform.
+
+Some drawbacks of using C include:
+
+- Hardware management - Some hardware resources need to be managed, for example, memory allocation.
+- No object orientation - C does not support object orientated programming. For example, unlike Python, methods cannot be inherited from parent classes.
+- No namespace - Variable and function names cannot be reused in different contexts.
+
+### References
+
+- d
+- d
+
+## Question 7 (a) - Identify two ethical issues from the areas below and discuss the extent to which an IT professional is ethically responsible in terms of the issue.
+
+## For each ethical issue, identify a source of legal information relating to the ethical issue and discuss whether the law is helpful in assisting a developer to act in an ethical way.
+
+### Access to a user's personal information (medical, family, financial, personal attributes such as sexuality, religion or beliefs)
+
+- IT professionals must read and understand the privacy policy that is given to users. They must also understand how it applies to the way in which they handle user's data.
+- IT professionals must know who the key privacy officer is at their workplace, and understand their responsibilities. Any potential privacy issues that an IT professional encounters should be raised with the privacy officer or someone senior.
+- IT professionals must consider privacy during the planning stage of the project, for example, conducting privacy impact assessments.
+- IT professionals should only collect personal information that is actually required, and not because it may be useful sometime in the future.
+- IT professionals should only access user's personal information on a need-to-know basis.
+- IT professionals must take reasonable steps to ensure that personal information is protected from unauthorised access.
+
+The Privacy Act 1988 describes how entities should handle personal information in a responsible way. This is an extensive legal document, and likely more appropriate for the legal department than the IT department.
+
+The Australian Government, Office of the Australian Information Commissioner, provides a privacy guide for organisations and government agencies which is derived from the Privacy Act 1988, but presented in a more easy-to-understand manner. This would be a good resource for a developer to consult before they
+
+### Intellectual property, copyright and acknowledgement
+
+## Question 7 (b) - Conduct research into a case study of one of the ethical issues you have chosen and discuss how an ethical IT professional should respond to the case study and how they might mitigate or prevent ethical breaches.
+
+ghfhgffh
