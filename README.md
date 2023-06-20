@@ -94,8 +94,14 @@ HTML has some semantic elements that give greater meaning to what is contained w
 
 ### References
 
-- 1
-- 2
+- https://www.thoughtco.com/what-are-markup-languages-3468655
+- https://www.w3schools.com/html/html_intro.asp
+- https://www.youtube.com/watch?v=RH0o-QjnwDg
+- https://www.w3.org/TR/WD-html40-970708/intro/sgmltut.html
+- https://www.youtube.com/watch?v=Q4dYwEyjZcY\
+- https://www.engr.colostate.edu/ets/html-structure/#:~:text=Within%20a%20web%20page%2C%20some,within%20the%20tags.
+- https://www.w3schools.com/html/html_head.asp
+- https://www.w3schools.com/tags/tag_meta.asp
 
 ## Question 2 - Define the features of the following technologies that are essential in terms of the development of the internet:
 
@@ -115,8 +121,12 @@ The use of packets means that there does not need to be a dedicated line of tran
 
 ### References -
 
-- d
-- d
+- https://computer.howstuffworks.com/question525.htm
+- https://www.techtarget.com/searchnetworking/definition/packet
+- https://www.youtube.com/watch?v=ewrBalT_eBM
+- https://www.cloudflare.com/en-gb/learning/network-layer/what-is-a-packet/
+- https://www.youtube.com/watch?v=3QhU9jd03a0&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo&index=29
+- https://www.livinginternet.com/i/iw_packet_inv.htm#:~:text=The%20packet%20switching%20concept%20was,world's%20first%20packet%20switching%20network.
 
 ## - IP addresses (IPv4 and IPv6)
 
@@ -128,8 +138,13 @@ An IPv6 address is represented by eight hexadecimal (a - f, 0 - 9) 16-bit alphan
 
 ### References
 
-- d
-- d
+- https://www.kaspersky.com/resource-center/definitions/what-is-an-ip-address
+- https://learn.microsoft.com/en-us/troubleshoot/windows-client/networking/tcpip-addressing-and-subnetting
+- https://computer.howstuffworks.com/internet/basics/what-is-an-ip-address.htm
+- https://kinsta.com/blog/ipv4-vs-ipv6/#:~:text=What%20Is%20the%20Difference%20Between,least%20for%20the%20foreseeable%20future).
+- https://www.menandmice.com/blog/ipv6-reference-address-space
+- https://www.usg.edu/galileo/skills/unit07/internet07_02.phtml
+- https://www.internetsociety.org/internet/history-internet/brief-history-internet/
 
 ## - Routers and routing
 
@@ -139,8 +154,9 @@ Routing is performed by the router by reading the header information of a data p
 
 ### References
 
--d
--d
+- https://www.cloudflare.com/en-gb/learning/network-layer/what-is-a-router/
+- https://en.wikipedia.org/wiki/IP_routing
+- https://en.wikipedia.org/wiki/Routing
 
 ## - Domains and DNS
 
@@ -156,7 +172,8 @@ When a domain name is entered into a web browser, the web browser will need to t
 
 ### References
 
-- d
+- https://computer.howstuffworks.com/dns.htm
+- https://www.cloudns.net/blog/dns-history-creation-first/
 
 ## Questions 3 - Define the features of the following technologies that are essential in terms of the development of the internet:
 
@@ -177,7 +194,9 @@ Reusing the email example, an email is sent from a client computer to a receivin
 
 ### References
 
-- f
+- https://www.cloudflare.com/en-gb/learning/ddos/glossary/tcp-ip/
+- https://www.youtube.com/watch?v=AEaKrq3SpW8&list=PLH2l6uzC4UEW0s7-KewFLBC1D0l6XRfye&index=30
+- https://tp4348.medium.com/what-happens-when-you-visit-a-website-1fd12cc241dc
 
 ## - HTTP and HTTPS
 
@@ -193,12 +212,13 @@ For HTTP requests and responses, all of this information is sent between the cli
 
 The HTTPS protocol was developed to create a secure connection between the client and server. The added "S" in HTTPS stands for secure. All information sent between the web browser and the server is encrypted using SSL/TLS (secure sockets layer/transport layer security) encryption. Additionally, servers require SSL certificates to give client's verification that they are communicating with the server that owns the requested domain. Web browsers now give warnings when attempting to communicate with a server using HTTP instead of HTTPS:
 
-_Insert http warning image_
+![HTTP Warning](http-warning.png)
 
 ### References
 
-- d
-- d
+- https://developer.mozilla.org/en-US/docs/Web/HTTP
+- https://www.cloudflare.com/en-gb/learning/ssl/why-is-http-not-secure/
+- https://www.cloudflare.com/en-gb/learning/ssl/what-is-an-ssl-certificate/
 
 ## - Web browsers (requests, rendering and developer tools)
 
@@ -229,8 +249,15 @@ Web browsers have been instrumental to the development of client and server comm
 
 ### References
 
-- d
-- d
+- https://www.mozilla.org/en-US/firefox/browsers/what-is-a-browser/
+- https://www.techopedia.com/definition/288/web-browser
+- https://www.geeksforgeeks.org/web-browser/
+- https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
+- https://www.codecademy.com/article/http-requests
+- https://reqbin.com/req/zvtstmpb/post-request-example
+- https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path
+- https://medium.com/jspoint/how-the-browser-renders-a-web-page-dom-cssom-and-rendering-df10531c9969
+- https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Tools_and_setup/What_are_browser_developer_tools
 
 ## Question 4 - Identify three data structures used in the Python programming language and explain the reasons for using each.
 
@@ -240,7 +267,9 @@ Data structures in Python do not need to be homogeneous, meaning that any data s
 
 Three of the four data structures are:
 
-- Lists - These are the most commonly used data structure in Python. They are mutable, meaning that items within the list can be changed, removed and added. Lists are also sequenced, meaning that the items within the list are of a particular order and will have a corresponding index. A list can be created using square brackets or the list function:
+### Lists
+
+These are the most commonly used data structure in Python. They are mutable, meaning that items within the list can be changed, removed and added. Lists are also sequenced, meaning that the items within the list are of a particular order and will have a corresponding index. A list can be created using square brackets or the list function:
 
 ```python
 list_a = [0, 5, "hello"]
@@ -249,9 +278,11 @@ list_b = list("have a good day", 0.00057, 99)
 
 Lists should be used when the data set contained in the list needs to be mutable and sequenced. If we have a data structure that will have its items added, changed or removed, and the order of these items is important, then a list would be an appropriate choice.
 
-- Tuples - Tuples are almost identical to lists, except that tuples are immutable. Once a tuple has been created, the items within it cannot be added, changed or removed. Below is the error received when trying to re-assign a tuple item.
+### Tuples
 
-_tuple error image_
+Tuples are almost identical to lists, except that tuples are immutable. Once a tuple has been created, the items within it cannot be added, changed or removed. Below is the error received when trying to re-assign a tuple item.
+
+![Tuple re-assignment error](tuple-error.png)
 
 The only technical exception to this would be if a mutable data structure, such as a list, was stored within a tuple. The items within the stored data structure may be altered, but the tuple itself cannot be changed. A tuple can be created using the round brackets, comma-separated items or the tuple function using a list as an argument:
 
@@ -263,7 +294,9 @@ tuple_c = tuple(list_a)
 
 When items within a data structure should not be changed after creation, then a tuple should be used. It will prevent accidental altering, adding or removed of items. The tuple is also a more memory-efficient than a list.
 
-- Dictionaries - Dictionaries are a mutable data structure that contain key:value pairs. In lists, we can refer to items based on their index. In dictionaries, we can refer to values based on their key. A dictionary can be created using curly braces with colon separated key and value pairs or using the dict() function:
+### Dictionaries
+
+Dictionaries are a mutable data structure that contain key:value pairs. In lists, we can refer to items based on their index. In dictionaries, we can refer to values based on their key. A dictionary can be created using curly braces with colon separated key and value pairs or using the dict() function:
 
 ```python
 dict_a = {'key_1':'value_1','age':33,'height':193}
@@ -282,8 +315,8 @@ Dictionaries are very similar to lists, however, their items are referred to by 
 
 ### References
 
-- d
-- d
+- https://www.youtube.com/watch?v=R-HLU9Fl5ug
+- https://www.w3schools.com/python/python_dictionaries.asp#:~:text=A%20dictionary%20is%20a%20collection,version%203.7%2C%20dictionaries%20are%20ordered.
 
 ## Question 5 - Describe the features of interpreters and compilers and how they are different.
 
@@ -303,6 +336,11 @@ Some differences between the interpreter and compiler include:
 - Errors - A compiler will not execute code that contains an error. The interpreter will run the code up until the point at which an error occurs.
 - Ease of development - A compiled code will run faster, however, when developing and debugging code, an interpreter is more developer-friendly.
 - Output of the Compiler/Interpreter - A compiler will create an executable file from the compiled code, which can be stored and run later without the need of the source code. The interpreter does not have a similar output, and requires the source code in order to be executed again.
+
+### References
+
+- https://www.geeksforgeeks.org/difference-between-compiler-and-interpreter/
+- https://www.youtube.com/watch?v=3iLUls6Z_tw
 
 ## Question 6 - Identify two commonly used programming languages and explain the benefits and drawbacks of each.
 
@@ -342,12 +380,18 @@ Some drawbacks of using C include:
 
 ### References
 
-- d
-- d
+- https://www.youtube.com/watch?v=rd6SgAIvGjw
+- https://www.youtube.com/watch?v=2lVDktWK-pc
+- https://thecodest.co/blog/pros-and-cons-of-python/
+- https://medium.com/@saadbenaicha/python-12-advantages-and-disadvantages-41bc407cf965
+- https://www.youtube.com/watch?v=No-6xCBWdT8
+- https://data-flair.training/blogs/advantages-and-disadvantages-of-c/
+- https://www.includehelp.com/c/advantages-and-disadvantages-of-c-programming-language.aspx
+- https://unstop.com/blog/advantages-and-disadvantages-of-c-programming-language
 
-## Question 7 (a) - Identify two ethical issues from the areas below and discuss the extent to which an IT professional is ethically responsible in terms of the issue.
+## Question 7 (i) - Identify two ethical issues from the areas below and discuss the extent to which an IT professional is ethically responsible in terms of the issue.
 
-## For each ethical issue, identify a source of legal information relating to the ethical issue and discuss whether the law is helpful in assisting a developer to act in an ethical way.
+## Question 7 (ii) - For each ethical issue, identify a source of legal information relating to the ethical issue and discuss whether the law is helpful in assisting a developer to act in an ethical way.
 
 ### Access to a user's personal information (medical, family, financial, personal attributes such as sexuality, religion or beliefs)
 
@@ -356,14 +400,26 @@ Some drawbacks of using C include:
 - IT professionals must consider privacy during the planning stage of the project, for example, conducting privacy impact assessments.
 - IT professionals should only collect personal information that is actually required, and not because it may be useful sometime in the future.
 - IT professionals should only access user's personal information on a need-to-know basis.
+- IT professionals must take care when handling sensitive information, which is given a higher level of protection under the Privacy Act 1988. Sensitive information may be a user's religious beliefs, sexual orientation, genetic information, etc.
 - IT professionals must take reasonable steps to ensure that personal information is protected from unauthorised access.
 
 The Privacy Act 1988 describes how entities should handle personal information in a responsible way. This is an extensive legal document, and likely more appropriate for the legal department than the IT department.
 
-The Australian Government, Office of the Australian Information Commissioner, provides a privacy guide for organisations and government agencies which is derived from the Privacy Act 1988, but presented in a more easy-to-understand manner. This would be a good resource for a developer to consult before they
+The Australian Government, Office of the Australian Information Commissioner, provides a privacy guide for organisations and government agencies which is derived from the Privacy Act 1988, but presented in a more easy-to-understand manner. This would be a good resource for a developer to consult before they take a role that involves handling user's personal information.
 
 ### Intellectual property, copyright and acknowledgement
 
-## Question 7 (b) - Conduct research into a case study of one of the ethical issues you have chosen and discuss how an ethical IT professional should respond to the case study and how they might mitigate or prevent ethical breaches.
+- IT professionals should respect intellectual property rights. IP should not be used unless permission is given by the IP owner, and acknowledgement must be given when used.
+- IT professionals must comply with copyright law. An IT professional may encounter software, music, images, text, etc. that has been copyrighted. The copyrighted work should not be used, unless permission is given by the copyright holder. Copyright protection
+- IT professionals should give full attribution when others work has been used. Open source software and creative commons content typically requests that attribution be given to the original author/creator.
+
+## Question 7 (iii) - Conduct research into a case study of one of the ethical issues you have chosen and discuss how an ethical IT professional should respond to the case study and how they might mitigate or prevent ethical breaches.
 
 ghfhgffh
+
+### References
+
+- https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/handling-personal-information/protecting-customers-personal-information
+- https://www.legislation.gov.au/Details/C2014C00076
+- https://www.gtlaw.com.au/knowledge/doing-business-australia/guide-intellectual-property-australia
+- https://www.legislation.gov.au/Details/C2022C00192
