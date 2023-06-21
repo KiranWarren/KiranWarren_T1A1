@@ -603,3 +603,139 @@ To summarise, Python does use type conversion, but does NOT use type coercion.
 - d
 
 ## Q10 - Explain data types, using examples.
+
+Programming languages store variables as a certain data type based on its value or the data type explicitly requested in the code. The data type of variables is important, as different data types can be used in different operations and may even change what an operation does based on the data types involved. Using Python as an example, the "+" operator will perform different actions depending on the two data types involved:
+
+```python
+a = "123" # text string
+b = "456" # text string
+c = a + b # string concatenation, c = "123546"
+
+d = 123 # numeric integer
+e = 456 # numeric integer
+f = d + e # numeric addition, f = 579
+```
+
+The **basic** data types used in Python are as follows:
+
+- Text types
+  - String or 'str' - A string of text, which is denoted by single or double quotes. For example, string = "Hello".
+- Numeric types
+  - Integer or 'int' - A whole number, positive or negative. For example, integer = -5.
+  - Floating point number or 'float' - A positive or negative number containing a decimal point. For example, float = 5.00001.
+  - Complex number or 'complex' - A numerical value containing real and imaginary components, with j denoting sqrt(-1). For example, complex = 4.09 + 2j. Where 4.09 is the real component, and 2j is the imaginary component.
+- Boolean type
+  - Boolean or 'bool' - A TRUE or FALSE value. These result from comparison operators and are required for conditional statements. For example, boolean = TRUE.
+- None type
+  - None Type or 'NoneType' - A NoneType is returned from a function that does not have a return statement. For example, variable_a = None.
+
+Python also contains some in-built composite data types:
+
+- Sequence types
+  - Range or 'range' - A sequence of integers over the specified range and step. For example, variable*a = range(0, 6, 2). \_variable_a* will be a range of 0, 2 and 4.
+  - List or 'list' - A mutable, ordered list of values. For example, variable_a = [0, 2, 4]. Each item in the list will have an index based on its position in the list, base 0.
+  - Tuple or 'tuple' - Same as the list, except the tuple is immutable and does not support item re-assignment. For example, variable_a = (0, 2, 4).
+- Mapping type
+  - Dictionary or 'dict' - A mutable list of key:value pairs. Values can be accessed by their key as opposed to their index. For example, variable_a = {"a":0, "b":2, "c":4}.
+- Set types
+  - Set or 'set' - A mutable, unordered set of unique values. For example, variable_a = {0, 2, 4}.
+  - Frozen Set or 'frozenset' - Same as a set, except the frozen set is immutable, as the name implies.
+- Binary types
+  - Bytes or 'bytes' - Closed related to strings, bytes types are immutable sequences of single bytes.
+  - Byte Array or 'bytearray' - Same as the 'bytes' type, but mutable.
+  - Memory View or 'memoryview' - _"memoryview objects allow Python code to access the internal data of an object that supports the buffer protocol without copying."_ (Python Documentation, 2023)
+    - _Author's note: I don't yet understand binary types enough to implement them. Descriptions have been summarised or directly quoted from Python's documentation._
+
+### References:
+
+- f
+- f
+
+## Question 11 - Here's the problem: "There is a restaurant serving a variety of food. The customers want to be able to buy food of their choice. All of the staff just quit, how can you build an app to replace them?"
+
+## - Identify the classes you would use to solve the problem.
+
+## - Write a short explanation of why you would use the classes you have identified.
+
+The menu for the restaurant could be stored in a dictionary, with menu items as keys and dollar value as the value. The menu items that a customer orders could also be stored within a dictionary, but with quantity for values. The final price the customer has to pay would be stored as a float.
+
+To explain my reasoning a little better, here is an example of the menu that would be hardcoded into a dictionary with corresponding prices:
+
+```python
+menu = {
+  "spaghetti":12.50,
+  "alfredo":9.50,
+  "garlic_bread":3.20,
+  "coke": 2.50
+  }
+```
+
+When a customer orders items, the code could update the 'order' dictionary with the quantities. When looking at what has been ordered, only dictionary items with non-zero values could be displayed to make the interface neater. The order dictionary may require one additional key:value pair, so that the table number or order number for an order can be recorded. When the order was completed, the 'order' dictionary can be sent to the kitchen so they know what to cook (as long as they haven't quit as well).
+
+As an example, a customer wanted a spaghetti, an alfredo and two cokes:
+
+```python
+order = {
+  "table_no":14,
+  "spaghetti":1,
+  "alfredo":1,
+  "garlic_bread":0,
+  "coke":2
+}
+```
+
+The final price can be calculated by multiplying corresponding values together in the menu and order dictionaries, and iteratively adding the result to a price variable:
+
+```python
+price = 0
+
+for k in menu.keys():
+    price = price + (order[k] * menu[k])
+```
+
+When the 'order' and 'menu' dictionaries were entered and the price was calculated, it came out to 27.0, which is the correct final price for this order. The main pieces missing are the interface for this app, a function that runs on the event that an item was added to the order (updating 'order' dictionary values), and a 'complete order' function that gives the customer a final price to pay and sends the order array to the kitchen.
+
+## Question 12 - Identify and explain the error in the code snippet below that is preventing correct execution of the program.
+
+The code snippet provided:
+
+```python
+celcius = input()
+
+fahrenheit = (celcius*9/5)+32
+
+print(f"The result is: {fahrenheit}.")
+```
+
+Running this code gives the following error message in the console:
+
+```bash
+Traceback (most recent call last):
+  File "/Users/kiran/Documents/Projects/KiranWarren_T1A1/example.py", line 3, in <module>
+    fahrenheit = (celcius*9/5)+32
+TypeError: unsupported operand type(s) for /: 'str' and 'int'
+```
+
+The code is resulting in a type error, because the division operator '/' is trying to divide a string by an integer, which is not supported. The division operator is an arithmetic operator, and needs two numerical data types (int, float or complex) in order to perform the division. The division operator will return a float type.
+
+The source of the error is coming from upstream, where the user's input is stored into the celcius variable. The input function is returning a string type, which is causing problems with the arithmetic. To fix this issue, type conversion of the input function can be used to turn it into any numerical data type (int or float preferred):
+
+```python
+celcius = int(input())
+
+fahrenheit = (celcius*9/5)+32
+
+print(f"The result is: {fahrenheit}.")
+```
+
+If the corrected code is run with '41' given as the input, the result of 105.8 is printed which is correct.
+
+```bash
+kiran@Kirans-MBP KiranWarren_T1A1 % /usr/bin/python3 /Users/kiran/Documents/Projects/KiranWarren_T1A1/example.py
+41
+The result is: 105.8.
+```
+
+## Question 13 - The code snippet below looks for the first two elements that are out of order and swaps them; however, it is not producing the correct results. Rewrite the code so that it works correctly.
+
+The code snippet provided:
