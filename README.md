@@ -690,7 +690,7 @@ The final price can be calculated by multiplying corresponding values together i
 price = 0
 
 for k in menu.keys():
-    price = price + (order[k] * menu[k])
+    price += (order[k] * menu[k])
 ```
 
 When the 'order' and 'menu' dictionaries were entered and the price was calculated, it came out to 27.0, which is the correct final price for this order. The main pieces missing are the interface for this app, a function that runs on the event that an item was added to the order (updating 'order' dictionary values), and a 'complete order' function that gives the customer a final price to pay and sends the order array to the kitchen.
@@ -739,3 +739,56 @@ The result is: 105.8.
 ## Question 13 - The code snippet below looks for the first two elements that are out of order and swaps them; however, it is not producing the correct results. Rewrite the code so that it works correctly.
 
 The code snippet provided:
+
+```python
+numbers = [5, 22, 29, 39, 19, 51, 78, 96, 84]
+i = 0
+while (i < len(numbers) - 1) and (numbers[i] < numbers[i + 1]):
+    i += 1
+print(i)
+numbers[i] = numbers[i+1]
+numbers[i+1] = numbers[i]
+```
+
+The code is correctly identifying the point at which the list items are no longer in order. In this case it is at numbers[3] and numbers[4]. However, if a print(numbers) line is added to the end of the code, it is apparent that the items are not being swapped:
+
+```bash
+[5, 22, 29, 19, 19, 51, 78, 96, 84]
+```
+
+The code has duplicated numbers[4] and put it into both numbers[3] and numbers[4] positions. This has occurred due to how the last two assignment statements have been made:
+
+```python
+# At i = 3:
+numbers[3] = numbers[4] # = 19
+numbers[i+1] = numbers[i] # = 19, assigned on previous line.
+```
+
+The easiest way to fix this code is to combine the last two assignment statements into one:
+
+```python
+numbers = [5, 22, 29, 39, 19, 51, 78, 96, 84]
+i = 0
+while (i < len(numbers) - 1) and (numbers[i] < numbers[i + 1]):
+    i += 1
+print(i)
+numbers[i], numbers[i+1] = numbers[i+1], numbers[i]
+```
+
+This will cause the re-assignments to happen simultaneously instead of sequentially. Printing the numbers list proves that this achieves the correct result:
+
+```bash
+kiran@Kirans-MBP KiranWarren_T1A1 % /usr/bin/python3 /Users/kiran/Documents/Projects/KiranWarren_T1A1/example.py
+3
+[5, 22, 29, 19, 39, 51, 78, 96, 84]
+```
+
+19 and 39 have successfully been swapped.
+
+## Question 14 - Demonstrate your algorithmic thinking through completing the following two tasks, in order:
+
+## 1. Create a flowchart to outline the steps for listing all prime numbers between 1 and 100 (inclusive). Your flowchart should make use of standard conventions for flowcharts to indicate processes, tasks, actions, or operations.
+
+![Prime Number List Flowchart](prime-number-flowchart.jpeg)
+
+## 2. Write pseudocode for the process outlined in your flowchart.
