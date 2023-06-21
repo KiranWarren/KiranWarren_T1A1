@@ -789,6 +789,65 @@ kiran@Kirans-MBP KiranWarren_T1A1 % /usr/bin/python3 /Users/kiran/Documents/Proj
 
 ## 1. Create a flowchart to outline the steps for listing all prime numbers between 1 and 100 (inclusive). Your flowchart should make use of standard conventions for flowcharts to indicate processes, tasks, actions, or operations.
 
-![Prime Number List Flowchart](prime-number-flowchart.jpeg)
+![Prime Number List Flowchart](primes.jpeg)
 
 ## 2. Write pseudocode for the process outlined in your flowchart.
+
+```python
+# Initialise list to hold prime numbers, prime_list, as an empty list.
+
+# Perform a for loop for all the numbers we want to test: i = 1 to 100.
+
+    # Reset or initialise a variable prime_bool to True.
+
+    # Check if i == 1.
+        # Next i.
+
+    # Check if 2 > sqrt(i).
+        # Append the current i to the prime_list list.
+
+    # Perform a for loop for j = 2 to ceil(sqrt(i)).
+      # Check if i % j == 0.
+          # Set prime_bool to True
+          # Break loop
+
+    # Check if the prime_bool value is True
+        # Append the current i to the prime_list list.
+
+# Print the prime_list to the console
+```
+
+For completeness, the code was written for finding all the primes between 1 and 100:
+
+```python
+import math
+
+prime_list = []
+
+for i in range(1,101):
+    prime_bool = True
+    if i == 1:
+        continue
+    if 2 > math.sqrt(i):
+        prime_list.append(i)
+        continue
+    for j in range(2,math.ceil(math.sqrt(i))+1):
+        if i % j == 0:
+            prime_bool = False
+            break
+    if prime_bool:
+        prime_list.append(i)
+
+print(prime_list)
+```
+
+This code output the correct list of primes to the console:
+
+```bash
+kiran@Kirans-MBP KiranWarren_T1A1 % /usr/bin/python3 /Users/kiran/Documents/Projects/KiranWarren_T1A1/primes.py
+[2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+```
+
+## Question 15 - Write pseudocode OR Python code for the following problem:
+
+### _You have access to two variables: raining (boolean) and temperature (integer). If it’s raining and the temperature is less than 15 degrees, print to the screen “It’s wet and cold”, if it is less than 15 but not raining print “It’s not raining but cold”. If it’s greater than or equal to 15 but not raining print “It’s warm but not raining”, and otherwise tell them “It’s warm and raining”._
