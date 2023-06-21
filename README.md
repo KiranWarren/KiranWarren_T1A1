@@ -356,6 +356,7 @@ Python is a high level language, created for general use programming. Python is 
 - Interpreted code - Python uses a code interpreter instead of a compiler. This makes it an easier language to develop and debug.
 - Dynamically-typed - Python uses dynamic-typing, which means that variable types are decided during execution of the code. This makes the language more flexible and simpler when developing the code.
 - Portability - Python can be run on any platform without the need for code to be changed to suit.
+- Exception handling - Exceptions can be handled in run time with the use of try/except statements.
 
 Some drawbacks to using Python include:
 
@@ -375,8 +376,9 @@ C is a general purpose language and considered to be a middle level language wit
 Some drawbacks of using C include:
 
 - Hardware management - Some hardware resources need to be managed, for example, memory allocation.
-- No object orientation - C does not support object orientated programming. For example, unlike Python, methods cannot be inherited from parent classes.
+- No object orientation - C does not support object orientated programming. For example, unlike Python, methods cannot be inherited from parent classes. Constuctors cannot be used to create objects.
 - No namespace - Variable and function names cannot be reused in different contexts.
+- No exception handling - Special cases cannot be handled during run time.
 
 ### References
 
@@ -423,3 +425,181 @@ ghfhgffh
 - https://www.legislation.gov.au/Details/C2014C00076
 - https://www.gtlaw.com.au/knowledge/doing-business-australia/guide-intellectual-property-australia
 - https://www.legislation.gov.au/Details/C2022C00192
+
+## Question 8 - Explain control flow, using examples the Python programming language.
+
+Control flow is the way in which the order of execution is controlled in a programming language. By default, programming languages will run sequentially, meaning that the code will run in the order that they appear. For example:
+
+```python
+x = 1
+y = 2
+z = x * y
+print(z) # Will print 2 in console
+```
+
+The code in the above excerpt runs from top to bottom as one would logically expect. There are many ways to change the order of execution of the code by using control flow such as conditional statements, repetition statements and transfer statements.
+
+### Conditional Statements
+
+The if statement will let a block of code run only if its condition is TRUE. The simplest of if statements can just contain one condition, that if TRUE, will cause the code within the if block to execute:
+
+```python
+guess = int(input("Guess a number between 1 and 10: "))
+
+if guess == 7:
+    print("You guessed right!")
+```
+
+If the number 7 was entered, then "You guessed right!" will print in the console. Otherwise, no further action will occur.
+
+More complex if statements can be created using if-elif-else statements. A more detailed version of the above example would be:
+
+```python
+guess = int(input("Guess a number between 1 and 10: "))
+
+if guess < 1 or guess > 10:
+    print("The number entered was not between 1 and 10!")
+elif guess == 7:
+    print("You guessed right!")
+else:
+    print("Sorry, better luck next time!")
+
+```
+
+In the above example, there are three conditions presented within the if-elif-else statement, and only one of the code blocks will run based on what number the user enters.
+
+### Loops or Repetition Statements
+
+Loops are a repetition statement that will execute a code block a repeated number of times depending on the type of loop used. Loops can be executed a fixed number of times (for loops) or will execute a loop while a condition is TRUE (while loops).
+
+The below example will store individual characters from a string into a list. The for loop is used to iterate over the length of the string. The for loop is used in this instance because we know exactly how many times the code block needs to be executed in order to store the entire string, i.e. len(str).
+
+```python
+str = "hello"
+str_list = []
+
+for i in range(len(str)):
+    str_list.append(str[i])
+```
+
+The while loop is used when the number of iterations may not be known, but rather the code block needs to be run until a certain condition is met. The condition will be checked before each time the code block runs.
+
+```python
+guess = 1
+
+while guess != 7:
+    guess = int(input("Guess a number between 1 and 10: "))
+```
+
+In the above example, the code block will keep executing until the user correctly guesses the number 7. It is not known how many guesses it will take the user to guess the number 7, so the repetition statement needs to be run based on their input instead of a fixed number of times.
+
+Given that while loops repeat based on a condition, there exists the possibility for the code to get stuck in the while loop and never satisfy the condition. This is called an infinite loops. Below shows an example of this:
+
+```python
+guess = 1
+correct_guess = False
+
+while correct_guess == False:
+    guess = int(input("Guess a number between 1 and 10: "))
+```
+
+The condition will never be satisfied, because the variable in the while condition is never altered within the code block. Either the correct_guess variable needs to be updated within the code block when the user guesses correctly, or a break statement could be used to force the loop to end when a correct guess is entered.
+
+### Transfer Statements
+
+Transfer statements are control flow statements that are used within loops the change the loop's execution. The two transfer statements in Python are break and continue. Some sources include the pass statement within transfer statements, and others do not.
+
+The break statement is used to force a loop to end. It can be used within a conditional statement to force a loop to end based on a condition being met.
+
+```python
+str = "hello my friend"
+str_list = []
+
+for i in range(len(str)):
+  if str[i] == " ":
+    break # End the for loop when a space is encountered
+  str_list.append(str[i])
+```
+
+The above example will store each character from string 'str' into the list 'str_list'. The loop wants to iterate over the length of the 'str' string. However, in this case, we only want the first word in the string, so the break statement is used to force the loop to end when a space is encountered. The str_list list will be ['h', 'e', 'l', 'l', 'o'] after the loop ends due to the break.
+
+The continue statement is used to skip the rest of the code within the loop at the current iteration, and move onto the next iteration. Reusing the previous example, the str_list can be built up with all non-space characters and spaces can be ignored:
+
+```python
+str = "hello my friend"
+str_list = []
+
+for i in range(len(str)):
+  if str[i] == " ":
+    continue # Go to the next iteration, i, upon encountering a space
+  str_list.append(str[i])
+```
+
+The str_list list will be ['h', 'e', 'l', 'l', 'o', 'm', 'y', 'f', 'r', 'i', 'e', 'n', 'd'] after the loop has ended. The continue statement skipped the two spaces and did not let them get appended to the list.
+
+The pass statement may also be considered a transfer statement. The pass statement is used as a placeholder when a code block is syntactically required, but there is no code that needs to be run.
+
+### References
+
+- d
+- d
+
+## Question 9 - Explain the difference between type coercion and type conversion. Are either of these used in Python?
+
+Variables in Python will be given a data type based on the value that they are given. For example:
+
+```python
+a = 6 # int or integer data type
+b = 6.1 # float or floating point number data type
+```
+
+Python uses dynamic typing (variable data type decided during execution), and will assign _a_ with the type 'int' and _b_ with the type 'float'.
+
+The data type of one of these variables may want to be changed futher on in the code at some point, and for that, type conversion can be used. For example:
+
+```python
+a = 6
+b = 6.1
+
+a = float(a) # variable 'a' converted to float data type
+```
+
+Some operations on different data types cannot be performed, such as adding a string to an integer. In other programming languages, such as JavaScript, type coercion will occur and force a variable into a different data type in order for the operation to be performed. This is called type coercion and Python DOES NOT have type coercion.
+
+```python
+a = "hello"
+b = 6
+
+c = a + b
+```
+
+In Python, the above code will result in a type error as _a_ and _b_ are different data types. Python will want _b_ to be a string in order to perform the concatentation operation. In JavaScript, variable _c_ will result in "hello6" for a similar operation.
+
+However, there are some interesting exceptions to this. For example:
+
+```python
+a = 6 # int
+b = 6.1 # float
+
+c = a + b # float
+```
+
+This code will run without error in Python, and it is NOT due to type coercion. What is occurring is that float and integer variables are objects with methods given by their class type. The integer add method does not know how to add a float value to itself, so Python attempts the reverse order and checks whether the float object's add method can add an integer to itself. In this case, the float's add method does know how to add an integer. The resulting value in variable _c_ will also be of float type.
+
+```python
+a = 6 # int
+b = 6.1 # float
+
+# c = a + b ----This operation will call the following methods:
+c = a.__add__(b) # NotImplemented, so Python attempts addition in the reverse order:
+c = b.__radd__(a) # This operation will be performed and 'c' will be a float type
+```
+
+To summarise, Python does use type conversion, but does NOT use type coercion.
+
+### References
+
+- d
+- d
+
+## Q10 - Explain data types, using examples.
