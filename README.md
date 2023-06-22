@@ -397,6 +397,8 @@ Some drawbacks of using C include:
 
 ### Access to a user's personal information (medical, family, financial, personal attributes such as sexuality, religion or beliefs)
 
+_Small blurb about how IT professionals can come into contact with personal info_
+
 - IT professionals must read and understand the privacy policy that is given to users. They must also understand how it applies to the way in which they handle user's data.
 - IT professionals must know who the key privacy officer is at their workplace, and understand their responsibilities. Any potential privacy issues that an IT professional encounters should be raised with the privacy officer or someone senior.
 - IT professionals must consider privacy during the planning stage of the project, for example, conducting privacy impact assessments.
@@ -584,7 +586,7 @@ b = 6.1 # float
 c = a + b # float
 ```
 
-This code will run without error in Python, and it is NOT due to type coercion. What is occurring is that float and integer variables are objects with methods given by their class type. The integer add method does not know how to add a float value to itself, so Python attempts the reverse order and checks whether the float object's add method can add an integer to itself. In this case, the float's add method does know how to add an integer. The resulting value in variable _c_ will also be of float type.
+This code will run without error in Python, and it is NOT due to type coercion. What is occurring is that float and integer variables are objects with methods given by their class type. The integer 'add' method does not know how to add a float value to itself, so Python attempts the reverse order and checks whether the float object's 'add' method can add an integer to itself. In this case, the float's add method does know how to add an integer. The resulting value in variable _c_ will also be of float type.
 
 ```python
 a = 6 # int
