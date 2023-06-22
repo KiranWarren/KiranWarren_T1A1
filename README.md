@@ -641,10 +641,9 @@ Python also contains some in-built composite data types:
   - Set or 'set' - A mutable, unordered set of unique values. For example, variable_a = {0, 2, 4}.
   - Frozen Set or 'frozenset' - Same as a set, except the frozen set is immutable, as the name implies.
 - Binary types
-  - Bytes or 'bytes' - Closed related to strings, bytes types are immutable sequences of single bytes.
-  - Byte Array or 'bytearray' - Same as the 'bytes' type, but mutable.
-  - Memory View or 'memoryview' - _"memoryview objects allow Python code to access the internal data of an object that supports the buffer protocol without copying."_ (Python Documentation, 2023)
-    - _Author's note: I don't yet understand binary types enough to implement them. Descriptions have been summarised or directly quoted from Python's documentation._
+  - Bytes or 'bytes'
+  - Byte Array or 'bytearray'
+  - Memory View or 'memoryview'
 
 ### References:
 
@@ -851,3 +850,64 @@ kiran@Kirans-MBP KiranWarren_T1A1 % /usr/bin/python3 /Users/kiran/Documents/Proj
 ## Question 15 - Write pseudocode OR Python code for the following problem:
 
 ### _You have access to two variables: raining (boolean) and temperature (integer). If it’s raining and the temperature is less than 15 degrees, print to the screen “It’s wet and cold”, if it is less than 15 but not raining print “It’s not raining but cold”. If it’s greater than or equal to 15 but not raining print “It’s warm but not raining”, and otherwise tell them “It’s warm and raining”._
+
+Python code will be used to solve this problem. Nested if statements can be utilised to provide the desired output. The inconsistency of the outputs that we want to print means we need nested if statements, and it wouldn't be as easy to solve with two separate if statements. The first condition to be used will be whether it is raining or not, then the temperature condition will be nested within that, however, there is no reason it could be setup the other way around.
+
+```python
+# Q15 - Weather Description
+
+# Initialise the two variables to be used for describing the weather.
+raining = False
+temperature = 15
+
+# Conditional statement based on whether it is raining or not.
+# if it is raining, run this block.
+if raining:
+
+    # Conditional statement checking whether the temp is below 15C.
+    # Provide the console output for below 15C.
+    if temperature < 15:
+        print("It's wet and cold")
+
+    # Provide the console output for above or equal to 15C.
+    else:
+        print("It's warm and raining")
+
+# If it is NOT raining, run this block.
+else:
+
+    # Conditional statement checking whether the temp is below 15C.
+    # Provide the console output for <15C.
+    if temperature < 15:
+        print("It's not raining but cold")
+
+    # Provide the console output for above or equal to 15C.
+    else:
+        print("It's warm but not raining")
+```
+
+The code was tested with multiple inputs and printed the correct output to the console.
+
+## Question 16 - ACME Corporation are hiring a new junior developer, as part of their hiring criteria they've created a "coding skill score" based on specific competencies they require for this role; the more important the skill is for ACME corp, the more points it contributes to the "coding skill score". The skills are weighted as follows:
+
+### - Python (1)
+
+### - Ruby (2)
+
+### - Bash (4)
+
+### - Git (8)
+
+### - HTML (16)
+
+### - TDD (32)
+
+### - CSS (64)
+
+### - JavaScript (128)
+
+### Write a program that allows a user to input their skills and then tells them:
+
+### a) Their overall "coding skill score".
+
+### b) Skills they may want to learn, and how much eaceh one would improve their score.
